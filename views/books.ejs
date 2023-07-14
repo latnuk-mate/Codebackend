@@ -1,0 +1,25 @@
+<h4 class="mb-3 text-center fw-bold">Add a new Book...</h4>
+<div class="form-field">
+    <form action="/books"  method="get">
+      <div class="row">
+    <div class="col-sm-12 mb-3">
+    <input type="text" class="form-control" placeholder="find a Book..." name="BookName"  value=" <%= books.title %>">
+    </div> 
+        <div class="col-sm-6 mb-3">
+            <input type="date" placeholder="dd/mm/yyyy" name="publishedAfter" class="form-control" 
+             value=" <%= books.publishedAfter %>">
+        </div>
+        <div class="col-sm-6 mb-3">
+            <input type="date" placeholder="dd/mm/yyyy" name="publishedBefore" class="form-control" 
+             value="<%= books.publishedBefore %>">
+        </div>
+        <div class="col-sm-12 mb-3">
+         <img src="<%= books.imagePath %>" alt="alternative images" width="100" height="130">
+        </div>
+      </div>
+       <div class="d-flex justify-content-center">
+        <input type="submit" value="Search" class="btn btn-outline-primary px-lg-3 py-lg-1 me-2">
+        <a href="/" class="btn btn-outline-warning px-lg-3 py-lg-1">Cancel</a>
+       </div>
+       </form>
+</div>

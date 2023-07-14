@@ -1,0 +1,13 @@
+  <h2 class="text-center mb-3">Get your all authors.</h2>
+  <form action="/author"  method="GET">
+    <input type="text" class="form-control" placeholder="Find A Author..." value="<%= queryString.AuthorName %>" name="author">
+   <div class="d-flex justify-content-center">
+    <input type="submit" value="Search" class="btn btn-outline-primary px-lg-3 py-lg-1 me-2">
+    <a href="/" class="btn btn-outline-warning px-lg-3 py-lg-1">back</a>
+   </div>
+   </form>
+ <% author.forEach(persons =>{ %>
+ <div> 
+    <%= persons.AuthorName %>
+ </div> 
+  <% }) %>

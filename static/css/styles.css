@@ -1,0 +1,19 @@
+.navbar .nav-link{
+    color: rgba(1, 8, 8, 0.671);
+    margin: 6px 8px;
+    padding: 4px 6px;
+}
+
+form .form-control{
+    border-radius: 8px;
+    border: 2px solid rgba(5, 1, 1, 0.623);
+    margin: 10px;
+    padding: 6px 8px;
+
+}
+.navbar-brand{
+    font-weight: bold;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(168, 152, 182, 0.918);
+}

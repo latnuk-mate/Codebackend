@@ -1,0 +1,40 @@
+<div class="text-center"> <%= errorMessage %></div>
+<h4 class="mb-3 text-center fw-bold">Add a new Book...</h4>
+<div class="form-field">
+    <form action="/books"  method="post"  enctype="multipart/form-data">
+      <div class="row">
+    <div class="col-sm-6 mb-3">
+    <input type="text" class="form-control" placeholder="Add a new Book..." name="BookName"  value=" <%= books.title %>">
+    </div> 
+        <div class="col-sm-6 mb-3">
+         <select name="authorSelection" id="">
+        <% authors.forEach(author => { %>
+        <% if(author.id === books.author){ %>
+    <option  selected value="<%= author.id %>"><%= author.AuthorName %></option>
+    <% } else { %>
+        <option  value="<%= author.id %>"><%= author.AuthorName %></option>
+    <% }}) %>
+        </select>
+        </div>
+        <div class="col-sm-6 mb-3">
+            <input type="date" placeholder="dd/mm/yyyy" name="publishedDate" class="form-control" 
+             value=" <%= books.publishedDate != null ? books.publishedDate.toISOString().split('T')[0] : '' %>">
+        </div>
+        <div class="col-sm-6 mb-3">
+            <input type="number" placeholder="add page numbers" min="1" name="pageCount" class="form-control"  value=" <%= books.pageCount %>">
+        </div>
+        <div class="col-sm-6 mb-3">
+            <input type="file"  name="datafiles" class="form-control">
+        </div>
+        <div class="col-sm-6 mb-3">
+        <textarea placeholder="Write something.." name="description" class="form-control">      
+            <%= books.description %>
+        </textarea>
+        </div>
+      </div>
+       <div class="d-flex justify-content-center">
+        <input type="submit" value="Create" class="btn btn-outline-primary px-lg-3 py-lg-1 me-2">
+        <a href="/" class="btn btn-outline-warning px-lg-3 py-lg-1">Cancel</a>
+       </div>
+       </form>
+</div>

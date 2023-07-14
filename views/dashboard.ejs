@@ -1,0 +1,17 @@
+
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+        <th>AuthorName</th>
+        <th>createdAt</th>
+        </tr>
+      </thead>
+     <% Authors.forEach(author => { %>
+        <tbody>
+            <tr>
+            <td><%= author.AuthorName %></td>
+            <td><%= helper.formatDate(author.createdAt, "dddd, MMMM Do YYYY, h:mm:ss a") %></td>
+            </tr>
+          </tbody>
+     <% }) %>
+    </table>
