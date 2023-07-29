@@ -7,7 +7,14 @@
    </div>
    </form>
  <% author.forEach(persons =>{ %>
- <div> 
-    <%= persons.AuthorName %>
- </div> 
+ <div>  <%= persons.AuthorName %></div> 
+ <div class="other-controllers">
+  <a href="/author/<%= persons.id %>" class="btn btn-outline-primary px-lg-3 py-lg-1 me-2">view</a>
+  <a href="/author/edit/<%= persons.id%>" class="btn btn-outline-secondary px-lg-3 py-lg-1 me-2">edit</a>
+  <form action="/author/delete/<%= persons.id %>?_method=DELETE" method="post">
+    <button type="submit" class="btn btn-outline-danger px-lg-3 py-lg-1 me-2">Delete</button>
+  </form>
+ </div>
   <% }) %>
+
+

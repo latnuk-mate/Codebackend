@@ -1,0 +1,11 @@
+
+<h4 class="mb-3 text-center fw-bold">Edit your Author[<%= author.AuthorName %>]</h4>
+<div class="form-field">
+    <form action="/author/<%= author.id %>?_method=PUT"  method="post">
+        <input type="text" class="form-control" value="<%=author.AuthorName %>" name="newauthor">
+       <div class="d-flex justify-content-center">
+        <input type="submit" value="Edit" class="btn btn-outline-primary px-lg-3 py-lg-1 me-2">
+        <a href="/author" class="btn btn-outline-warning px-lg-3 py-lg-1">Cancel</a>
+       </div>
+       </form>
+</div>

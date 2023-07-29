@@ -1,0 +1,24 @@
+
+<h3>BookName: <%= books.title %></h3>
+<div class="d-flex justify-content-center pt-3">
+    <div class="book-show">
+        <div class="position-relative mb-2">
+      <img src="<%= books.imagePath %>" alt="alternative images" width="100" height="130">
+     </div>
+     <div class="d-flex align-items-center mb-2">
+ <a href="/books/<%= books.id%>/edit" class="btn btn-outline-secondary px-lg-3 py-lg-1 me-2">edit</a>
+        <form action="/books/delete/<%= books.id %>?_method=DELETE" method="post">
+            <button type="submit" class="btn btn-outline-danger px-lg-3 py-lg-1 me-2">Delete</button>
+          </form>
+     </div>
+     <a href="/author/<%= books.author.id %>" class="btn btn-outline-success px-lg-3 py-lg-1">
+        View Author
+     </a>
+    </div>
+<div class="book-details">
+    <h5 class="mb-2">Author: <%= books.author.AuthorName %></h5>
+    <h5 class="mb-2">PublishedDate: <%= helper.formatDate(books.publishedDate, "dddd, MMMM Do YYYY, h:mm:ss a") %></h5>
+    <h5 class="mb-2">PageCount: <%= books.pageCount%></h5>
+    <h5 class="mb-2">Description: <%= books.description%></h5>
+</div>
+</div>

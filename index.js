@@ -4,6 +4,7 @@ const app = express();
 const morgan = require('morgan');
 const ejsLayouts = require('express-ejs-layouts');
 const Path = require('path');
+const methodOverride = require('method-override')
 const mongoose = require('mongoose');
 const Author = require('./Model/Author');
 const port = process.env.PORT || 4000;
@@ -14,6 +15,8 @@ app.set('views', 'views');
 app.set('view engine', 'ejs');
 app.set('layout', './layouts/main');
 app.use(ejsLayouts);
+// overriding any other HTTP requests.
+app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({limit: '10mb', extended: false}));
 app.use(express.static(Path.join(__dirname, 'static')));
@@ -23,7 +26,8 @@ const connection = async()=>{
      try{
         let db = await mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            useFindAndModify: false
         });
         console.log('mongoose connected to the server...')
      }catch(err){
@@ -33,7 +37,7 @@ const connection = async()=>{
 }
 connection(); // initializing the database..
 
-// diplaying  all the HTTP codes and routes.../
+// diplaying  all the HTTP Status codes and routes.../
 if(process.env.NODE_ENV !== 'production'){
     app.use(morgan('dev'));
 }
@@ -44,7 +48,7 @@ if(process.env.NODE_ENV !== 'production'){
  app.use('/books', require('./routes/book'));
 
 
-app.get('/dashboard', async(req,res,next)=>{
+app.get('/', async(req,res,next)=>{
         try{    
                 let authors = await Author.find().sort({createdAt : 'desc'});
                     res.render('dashboard', {Authors : authors,

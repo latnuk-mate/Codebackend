@@ -3,18 +3,22 @@
     <form action="/books"  method="get">
       <div class="row">
     <div class="col-sm-12 mb-3">
-    <input type="text" class="form-control" placeholder="find a Book..." name="BookName"  value=" <%= books.title %>">
+    <input type="text" class="form-control" placeholder="find a Book..." name="BookName" value="<%= searchQuery.BookName %>" />
     </div> 
         <div class="col-sm-6 mb-3">
+          <label for="publishedAfter">publishedAfter</label>
             <input type="date" placeholder="dd/mm/yyyy" name="publishedAfter" class="form-control" 
-             value=" <%= books.publishedAfter %>">
+             value="<%= searchQuery.publishedAfter %>" />
         </div>
         <div class="col-sm-6 mb-3">
+          <label for="publishedBefore">publishedBefore</label>
             <input type="date" placeholder="dd/mm/yyyy" name="publishedBefore" class="form-control" 
-             value="<%= books.publishedBefore %>">
+             value="<%= searchQuery.publishedBefore %>" />
         </div>
         <div class="col-sm-12 mb-3">
-         <img src="<%= books.imagePath %>" alt="alternative images" width="100" height="130">
+         <% books.forEach(book => { %>
+          <img src="<%= book.imagePath %>" alt="alternative images" width="100" height="130">
+          <% }) %>
         </div>
       </div>
        <div class="d-flex justify-content-center">

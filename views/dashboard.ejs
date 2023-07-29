@@ -4,6 +4,7 @@
         <tr>
         <th>AuthorName</th>
         <th>createdAt</th>
+        <th>createdBooks</th>
         </tr>
       </thead>
      <% Authors.forEach(author => { %>
@@ -11,6 +12,7 @@
             <tr>
             <td><%= author.AuthorName %></td>
             <td><%= helper.formatDate(author.createdAt, "dddd, MMMM Do YYYY, h:mm:ss a") %></td>
+            <td></td>
             </tr>
           </tbody>
      <% }) %>
